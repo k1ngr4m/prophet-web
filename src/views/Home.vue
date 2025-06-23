@@ -27,7 +27,7 @@ const summonerName = ref('');
 
 const queryHorse = async () => {
     try {
-        const cleanName = summonerName.value.replace(/[\u2066-\u2069]/g, ''); // 移除控制符
+        const cleanName = summonerName.value.replace(/[\u2066-\u2069]/g, '');
         const response = await request.post('/v1/horse/queryBySummonerName', {
             summonerName: cleanName
         });
