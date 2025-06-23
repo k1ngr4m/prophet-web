@@ -13,6 +13,9 @@
       <p>马匹: {{ horseInfo.horse }}</p>
     </div>
   </div>
+  <div>
+    <button @click="queryCurrSummonerInfo">查询当前召唤师信息</button>
+  </div>
 </template>
 
 <script setup>
@@ -34,4 +37,12 @@ const queryHorse = async () => {
     }
 };
 
+const queryCurrSummonerInfo = async () => {
+  try{
+    const response = await request.get('/v1/user/GetCurrSummonerInfo');
+    summonerInfo.value = response.data;
+  } catch (error) {
+    console.error('<UNK>:', error);
+  }
+}
 </script>
