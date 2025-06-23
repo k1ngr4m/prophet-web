@@ -25,4 +25,5 @@ const queryHorse = async () => {
     console.error('请求出错:', error);
   }
 };
+
 </script>
