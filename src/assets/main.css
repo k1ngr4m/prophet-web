@@ -7,6 +7,20 @@
   font-weight: normal;
 }
 
+.summoner-input {
+  padding: 10px;
+  border: 2px solid hsla(160, 100%, 37%, 1);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.summoner-input:focus {
+  outline: none;
+  border-color: hsla(160, 100%, 37%, 0.8);
+  box-shadow: 0 0 8px hsla(160, 100%, 37%, 0.3);
+}
+
 a,
 .green {
   text-decoration: none;
