@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import request from '../utils/request';
+import request from '../utils/request.js';
 
 const horseInfo = ref(null);
 const summonerName = ref('');
