@@ -1,5 +1,10 @@
 <template>
     <div>
+      <!-- 当前召唤师信息展示 -->
+      <div v-if="summonerInfo" class="summoner-info">
+        <h2>当前召唤师</h2>
+        <p>{{ summonerInfo.game_name }}#{{ summonerInfo.tag_line }}</p>
+      </div>
         <input
                 type="text"
                 class="summoner-input"
@@ -23,37 +28,41 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'; // 1. 引入 onMounted
+import { ref, onMounted } from 'vue';
 import request from '../utils/request.js';
 
 const horseInfo = ref(null);
 const summonerName = ref('');
-const summonerInfo = ref(null); // 2. 定义存储召唤师信息的响应式变量
+const summonerInfo = ref(null);
 
-// 3. 页面加载时自动执行
+// 页面加载时自动查询召唤师信息
 onMounted(() => {
-    queryCurrSummonerInfo();
+  queryCurrSummonerInfo();
 });
 
 const queryHorse = async () => {
-    try {
-        const cleanName = summonerName.value.replace(/[\u2066-\u2069]/g, '');
-        const response = await request.post('/v1/horse/queryBySummonerName', {
-            summonerName: cleanName
-        });
-        horseInfo.value = response.data;
-    } catch (error) {
-        console.error('请求出错:', error);
-    }
+  try {
+    const cleanName = summonerName.value.replace(/[\u2066-\u2069]/g, '');
+    const response = await request.post('/v1/horse/queryBySummonerName', {
+      summonerName: cleanName
+    });
+    horseInfo.value = response.data;
+  } catch (error) {
+    console.error('请求出错:', error);
+    alert('查询马匹信息失败，请重试');
+  }
 };
 
 const queryCurrSummonerInfo = async () => {
-    try {
-        const response = await request.get('/v1/user/GetCurrSummonerInfo');
-        summonerInfo.value = response.data; // 4. 存储数据
-        console.log('召唤师信息:', summonerInfo.value);
-    } catch (error) {
-        console.error('获取召唤师信息失败:', error);
-    }
+  try {
+    const response = await request.get('/v1/user/GetCurrSummonerInfo');
+    summonerInfo.value = response.data;
+
+    // 控制台输出以便调试
+    console.log('召唤师信息:', summonerInfo.value);
+  } catch (error) {
+    console.error('获取召唤师信息失败:', error);
+    alert('无法获取召唤师信息，请检查客户端状态');
+  }
 }
 </script>
