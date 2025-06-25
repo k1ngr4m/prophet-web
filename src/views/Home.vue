@@ -55,7 +55,7 @@ const queryHorse = async () => {
 
 const queryCurrSummonerInfo = async () => {
   try {
-    const response = await request.get('/v1/user/GetCurrSummonerInfo');
+    const response = await request.get('/v1/getCurrSummoner');
     summonerInfo.value = response.data;
 
     // 控制台输出以便调试
