@@ -24,12 +24,10 @@ const querySummonerInfo = async () => {
 const queryCurrSummonerName = async () => {
   try {
     const response = await request.get('/v1/getCurrSummoner');
-    console.log('完整响应:', response); // 调试用
 
     // 检查响应结构（现在数据在 response.data.data 里）
     if (response.data && response.data.code === 0 && response.data.data?.summonerName) {
       summonerName.value = response.data.data.summonerName;
-      console.log('当前召唤师信息:', summonerName.value);
 
       // 如果有召唤师名称，则查询详细信息
       if (summonerName.value) {
