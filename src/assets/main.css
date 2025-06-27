@@ -1,11 +1,6 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .summoner-input {
   padding: 10px;
@@ -21,29 +16,6 @@
   box-shadow: 0 0 8px hsla(160, 100%, 37%, 0.3);
 }
 
-a,
-
-.summoner-info {
-  margin: 20px 0;
-  padding: 15px;
-  background-color: #f0f8ff;
-  border-radius: 8px;
-  border: 1px solid #d0e8ff;
-}
-
-.summoner-info h2 {
-  margin-top: 0;
-  color: #1a365d;
-}
-
-.summoner-input {
-  padding: 8px 12px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 250px;
-}
-
 button {
   padding: 8px 16px;
   background-color: #4a6cf7;
@@ -56,38 +28,4 @@ button {
 
 button:hover {
   background-color: #3a5bd9;
-}
-
-.horse-info {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  border: 1px solid #eee;
-}
-
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
 }
