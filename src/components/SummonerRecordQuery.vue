@@ -662,42 +662,6 @@ const winRate = (wins, losses) => {
   if (wins + losses === 0) return 0;
   return Math.round((wins / (wins + losses)) * 100);
 };
-
-// 导出方法和数据
-// export {
-//   searchInput,
-//   searchHistory,
-//   showHistory,
-//   summonerInfo,
-//   summonerRankedInfo,
-//   summonerMatchesList,
-//   loading,
-//   errorMessage,
-//   matchFilter,
-//   filteredMatches,
-//   recentStats,
-//   hasMoreMatches,
-//
-//   // 方法
-//   searchSummoner,
-//   loadMoreMatches,
-//   toggleHistory,
-//   selectHistory,
-//   removeHistory,
-//   clearAllHistory,
-//   retry,
-//
-//   // 辅助方法
-//   getChampionName,
-//   getChampionImage,
-//   getSummonerSpellImage,
-//   getItemImage,
-//   formatNumber,
-//   formatGameDuration,
-//   formatTimeAgo,
-//   getQueueTypeName,
-//   winRate
-// };
 </script>
 
 <style scoped>
